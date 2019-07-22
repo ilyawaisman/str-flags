@@ -1,8 +1,10 @@
 # gradle
 .gradle
-build
 
 # idea
 .idea
-*.iml
-build
+
+*/build/
+*/out/
+
+
