@@ -3,19 +3,19 @@ tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
 
+repositories {
+    jcenter()
+}
+
 plugins {
     idea
-    java
+    `java-library`
 }
 
 val javaVersion = JavaVersion.VERSION_1_8
 
 idea {
     project.jdkName = javaVersion.name
-}
-
-repositories {
-    jcenter()
 }
 
 subprojects {
@@ -26,7 +26,7 @@ subprojects {
         jcenter()
     }
 
-    apply<JavaPlugin>()
+    apply<JavaLibraryPlugin>()
 
     configure<JavaPluginConvention> {
         sourceCompatibility = javaVersion
