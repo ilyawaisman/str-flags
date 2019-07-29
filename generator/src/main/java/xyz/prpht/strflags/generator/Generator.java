@@ -58,9 +58,10 @@ public final class Generator extends AbstractProcessor {
             throw new IllegalStateException(String.format("%s must be TypeElement", element));
         }
 
-        log(String.format("generating for %s", ((TypeElement) element).getQualifiedName()));
+        final TypeElement typeElement = (TypeElement) element;
+        log(String.format("generating for %s", typeElement.getQualifiedName()));
 
-        final ModelType model = ModelType.create(element);
+        final ModelType model = ModelType.create(typeElement);
 
         try (Writer writer = processingEnv.getFiler().createSourceFile(model.getPath()).openWriter()) {
             template.process(model, writer);

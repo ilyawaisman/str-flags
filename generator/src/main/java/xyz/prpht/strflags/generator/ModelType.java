@@ -2,9 +2,8 @@ package xyz.prpht.strflags.generator;
 
 import org.jetbrains.annotations.NotNull;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.PackageElement;
+import javax.lang.model.element.*;
+import javax.lang.model.type.TypeMirror;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +26,13 @@ public final class ModelType {
         this.length = length;
     }
 
-    static ModelType create(@NotNull Element element) {
+    static ModelType create(@NotNull TypeElement element) {
         final String pack = ((PackageElement) element.getEnclosingElement()).getQualifiedName().toString();
         final String name = element.getSimpleName().toString();
+        final List<? extends TypeMirror> interfaces = element.getInterfaces();
+        if (!interfaces.isEmpty())
+            throw new IllegalArgumentException(String.format("Type %s has supertype(s): %s; this is not supprted", name, interfaces));
+
         final String path = String.format("%s.%sConvert", pack, name);
         int idx = 0;
         final ArrayList<ModelMember> members = new ArrayList<>();
