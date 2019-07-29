@@ -1,4 +1,6 @@
 # str-flags
+[ ![Download](https://api.bintray.com/packages/ilyawaisman/maven/str-flags/images/download.svg?version=0.0.2) ](https://bintray.com/ilyawaisman/maven/str-flags/0.0.2/link)
+
 String representation for flags collections. Library generates conversions between arbitrary flag collection represented by an interface and strings.
 
 *Example.* Given an interface for Unix access rights.
