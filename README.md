@@ -3,7 +3,9 @@
 
 String representation for flags collections. Library generates conversions between arbitrary flag collection represented by an interface and strings.
 
-*Example.* Given an interface for Unix access rights.
+## Example
+
+Given an interface for Unix access rights.
 
 ```java
 enum Permission { Read, Write, Xecute }
@@ -37,7 +39,7 @@ dr--r-----
 Here for method `isDirectory` one flag `d` is generated, and for other methods groups of three flags `rwx` are generated.
 `d` is taken from method's name, `rwx` from enum elements names.
 
-## Syntax
+## Rules
 
 To use generator you need to provide an interface and annotate it with `@StrFlags`.
 All interface methods must fall into one of the three categories:
@@ -55,3 +57,32 @@ It can take any value of enum elemenets first letters or "-" for `null`.
 All letters used are lowercased.
 
 Helper type `<interface_name>Convert` will be generated with two methods - `fromString` and `toString`.
+
+## Gradle configuration
+
+To use in Java project add dependency (in Groovy DSL):
+
+```groovy
+dependencies {
+    implementation 'xyz.prpht.setflags:str-flags:0.0.2'
+    annotationProcessor 'xyz.prpht.setflags:str-flags:0.0.2'
+}
+```
+
+If you use modern Kotlin DSL for Gradle, add brackets:    
+
+```kotlin
+dependencies {
+    implementation("xyz.prpht.setflags:str-flags:0.0.2")
+    annotationProcessor("xyz.prpht.setflags:str-flags:0.0.2")
+}
+```
+
+For Kotlin project use `kapt` instead of `annotationProcessor`.
+
+## TODO
+
+1. Add interfaces inheritance support.
+2. ...
+
+Feel free to add issues with bugs found and feature requests.
