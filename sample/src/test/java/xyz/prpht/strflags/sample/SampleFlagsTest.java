@@ -49,6 +49,13 @@ final class SampleFlagsTest {
     }
 
     @Test
+    void objToString() {
+        final String str = "a-cx--y";
+        final SampleFlags sampleFlags = SampleFlagsConvert.fromString(str);
+        Assertions.assertEquals(String.format("SampleFlags[%s]", str), sampleFlags.toString());
+    }
+
+    @Test
     void tooShort() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> SampleFlagsConvert.fromString("------"));
     }

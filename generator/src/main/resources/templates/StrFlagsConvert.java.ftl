@@ -54,7 +54,7 @@ public final class ${name}Convert {
 
         @Override
         public String toString() {
-            return String.format("${name}[%f]", ${name}Convert.toString(this));
+            return String.format("${name}[%s]", ${name}Convert.toString(this));
         }
     }
 }
