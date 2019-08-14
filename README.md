@@ -1,5 +1,5 @@
 # str-flags
-[ ![Download](https://api.bintray.com/packages/ilyawaisman/maven/str-flags/images/download.svg?version=0.1.0) ](https://bintray.com/ilyawaisman/maven/str-flags/0.1.0/link)
+[ ![Download](https://api.bintray.com/packages/ilyawaisman/maven/str-flags/images/download.svg?version=0.1.2) ](https://bintray.com/ilyawaisman/maven/str-flags/0.1.2/link)
 
 String representation for flags collections. Library generates conversions between arbitrary flag collection represented by an interface and strings.
 
@@ -79,6 +79,12 @@ dependencies {
 ```
 
 For Kotlin project use `kapt` instead of `annotationProcessor`.
+
+## Release notes
+
+### 0.1.2
+
+* Compatibility with JDK 9+ (`Generated` annotation is removed).  
 
 ## TODO
 

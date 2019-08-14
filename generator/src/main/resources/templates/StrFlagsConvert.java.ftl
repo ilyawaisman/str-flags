@@ -2,12 +2,10 @@
 
 package ${pack};
 
-import javax.annotation.Generated;
 import java.util.Set;
 
 import static xyz.prpht.strflags.meta.StrFlagsHelper.*;
 
-@Generated("str-flags")
 @SuppressWarnings({"SameParameterValue"})
 public final class ${name}Convert {
 
